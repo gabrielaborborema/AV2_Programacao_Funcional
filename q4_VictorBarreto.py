@@ -25,13 +25,15 @@ create_database("pythondb", crs)
 use_database("pythondb", crs)
 create_table("USUARIOS", "id INT NOT NULL, nome VARCHAR(45) NOT NULL, console VARCHAR(45) NOT NULL, PRIMARY KEY(id)", crs)
 create_table("JOGOS", "id INT NOT NULL, nome VARCHAR(45) NOT NULL, data_lancamento DATE NOT NULL, PRIMARY KEY(id)", crs)
-# insert("USUARIOS", "id, nome, console", "1, \"Jorge\", \"XBox\"", crs)
-# insert("USUARIOS", "id, nome, console", "2, \"Paulo\", \"Playstation\"", crs)
-# insert("JOGOS", "id, nome, data_lancamento", "1, \"Halo 3\", '2007-09-25'", crs)
-# insert("JOGOS", "id, nome, data_lancamento", "2, \"God of War Ragnarok\", '2022-11-09'", crs)
+insert("USUARIOS", "id, nome, console", "1, \"Jorge\", \"XBox\"", crs)
+insert("USUARIOS", "id, nome, console", "2, \"Paulo\", \"Playstation\"", crs)
+insert("JOGOS", "id, nome, data_lancamento", "1, \"Halo 3\", '2007-09-25'", crs)
+insert("JOGOS", "id, nome, data_lancamento", "2, \"God of War Ragnarok\", '2022-11-09'", crs)
 select("*", "USUARIOS", "true", crs)
 
 res = crs.fetchall()
 print_result = lambda crs : [print (x) for x in res]
 
 print_result(crs)
+
+mydb.commit()
